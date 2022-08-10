@@ -12,7 +12,7 @@ on:
   push:
   fork:
   release:
-    types: [released]
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -28,10 +28,10 @@ jobs:
         # Identity JSON containing key to access a Ziti network
         zitiId: ${{ secrets.ZITI_MATTERMOST_IDENTITY }}
 
-        # URL to post the payload. Note that the `zitiId` must provide access to a service 
+        # URL to post the payload. Note that the `zitiId` must provide access to a service
         # intercepting `my-mattermost-ziti-server`
         webhookUrl: ${{ secrets.ZHOOK_URL }}
 
         eventJson: ${{ toJson(github.event) }}
-        senderUsername: GitHubZ
-        destChannel: dev-notifications
+        senderUsername: "GitHubZ"
+        destChannel: "dev-notifications"
